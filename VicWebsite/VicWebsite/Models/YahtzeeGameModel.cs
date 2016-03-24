@@ -13,6 +13,6 @@ namespace VicWebsite.Models
         public int Dice3 { get; set; }
         public int Dice4 { get; set; }
         public int Dice5 { get; set; }
-        public int Total { get; set; }
+        public int Score { get; set; }
     }
 }

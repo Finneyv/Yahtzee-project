@@ -1,32 +1,32 @@
 ﻿@model VicWebsite.Models.YahtzeeGameModel
 
 @{
-    ViewBag.Title = "View";
+    ViewBag.Title = "Game";
 }
 
-<h2>View</h2>
+<h2>Yahtzee Game</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>YahtzeeGameModel</h4>
+        <h4>Your Yahtzee Game</h4>
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
         <div class="form-group">
             @Html.LabelFor(model => model.Yahtzee, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Yahtzee, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Yahtzee, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Yahtzee, new { htmlAttributes = new { id = "Yahtzee", @class = "form-control" } })
+                @Html.DisplayFor(model => model.Yahtzee, "", new { id = "Yahtzee", data_bind = "value: Yahtzee" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Dice1, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Dice1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Dice1, new { htmlAttributes = new { id = "Dice1", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Dice1, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -34,7 +34,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Dice2, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Dice2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Dice2, new { htmlAttributes = new { id = "Dice2", @class = "form-control"} })
                 @Html.ValidationMessageFor(model => model.Dice2, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -42,7 +42,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Dice3, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Dice3, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Dice3, new { htmlAttributes = new { id = "Dice3", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Dice3, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -50,7 +50,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Dice4, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Dice4, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Dice4, new { htmlAttributes = new { id = "Dice4", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Dice4, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -58,23 +58,23 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Dice5, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Dice5, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Dice5, new { htmlAttributes = new { id ="Dice5", @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Dice5, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Total, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Score, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Total, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Total, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Score, new { htmlAttributes = new { id ="total", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Score, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+                <input id="Roll" type="button" , onclick="round();" name="Roll" value="Roll"/>
+           </div>
         </div>
     </div>
 }
@@ -84,5 +84,29 @@
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript", language="javascript">
+        debugger;
+        function roll() {
+            return Math.floor(Math.random() * (6))+ 1;
+        }
+
+        function round() {
+            var Yahtzee = "Is this working?";
+            document.getElementById("Yahtzee").setAttribute("value", Yahtzee);
+            var Dice1 = roll();
+            document.getElementById("Dice1").setAttribute("value", Dice1);
+            var Dice2 = roll();
+            document.getElementById("Dice2").setAttribute("value", Dice2);
+            var Dice3 = roll();
+            document.getElementById("Dice3").setAttribute("value", Dice3);
+            var Dice4 = roll();
+            document.getElementById("Dice4").setAttribute("value", Dice4);
+            var Dice5 = roll();
+            document.getElementById("Dice5").setAttribute("value", Dice5);
+            var total = Dice1 + Dice2 + Dice3 + Dice4 + Dice5;
+            document.getElementById("total").setAttribute("value", total);
+        }
+
+        document.getElementById("Roll").onclick = round;
+    </script>
 }
