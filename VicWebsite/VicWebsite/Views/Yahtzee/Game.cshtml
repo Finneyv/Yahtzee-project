@@ -18,8 +18,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Yahtzee, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.HiddenFor(model => model.Yahtzee, new { htmlAttributes = new { id = "Yahtzee", @class = "form-control" } })
-                @Html.DisplayFor(model => model.Yahtzee, "", new { id = "Yahtzee", data_bind = "value: Yahtzee" })
+                @Html.EditorFor(model => model.Yahtzee, new { htmlAttributes = new { id = "Yahtzee", @class = "form-control" } })
+                @*@Html.DisplayFor(model => model.Yahtzee, "", new { id = "Yahtzee", data_bind = "value: Yahtzee" })*@
             </div>
         </div>
 
@@ -93,17 +93,13 @@
         function round() {
             var Yahtzee = "Is this working?";
             document.getElementById("Yahtzee").setAttribute("value", Yahtzee);
-            var Dice1 = roll();
-            document.getElementById("Dice1").setAttribute("value", Dice1);
-            var Dice2 = roll();
-            document.getElementById("Dice2").setAttribute("value", Dice2);
-            var Dice3 = roll();
-            document.getElementById("Dice3").setAttribute("value", Dice3);
-            var Dice4 = roll();
-            document.getElementById("Dice4").setAttribute("value", Dice4);
-            var Dice5 = roll();
-            document.getElementById("Dice5").setAttribute("value", Dice5);
-            var total = Dice1 + Dice2 + Dice3 + Dice4 + Dice5;
+            var dices = new Array(roll(), roll(), roll(), roll(), roll());
+            document.getElementById("Dice1").setAttribute("value", dices[0]);
+            document.getElementById("Dice2").setAttribute("value", dices[1]);
+            document.getElementById("Dice3").setAttribute("value", dices[2]);
+            document.getElementById("Dice4").setAttribute("value", dices[3]);
+            document.getElementById("Dice5").setAttribute("value", dices[4]);
+            var total = dices[0] + dices[1] + dices[2] + dices[3] + dices[4];
             document.getElementById("total").setAttribute("value", total);
         }
 
