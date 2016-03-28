@@ -19,7 +19,9 @@ namespace VicWebsite.Controllers
         [HttpPost]
         public ActionResult GameLogic(int[] Dices)
         {
-            var score = Dices.Sum();
+            var score = 0;
+            int val = Dices.First();
+            if (Dices.All(x => x == val)) score = 50;
             var obj = new {  value = score };
             return Json(obj, JsonRequestBehavior.AllowGet);
         }
