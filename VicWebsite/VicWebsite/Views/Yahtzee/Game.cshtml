@@ -73,7 +73,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input id="Roll" type="button" , onclick="round();" name="Roll" value="Roll"/>
+                <input id="Roll" type="button" onclick="round();" name="Roll" value="Roll"/>
            </div>
         </div>
     </div>
@@ -85,9 +85,23 @@
 
 @section Scripts {
     <script type="text/javascript", language="javascript">
-        debugger;
         function roll() {
             return Math.floor(Math.random() * (6))+ 1;
+        }
+
+        function gameLogic(val) {
+            debugger;
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GameLogic", "Yahtzee")',
+                data:{
+                    Dices: val
+                },
+                success: function (data) {
+                    debugger;
+                    document.getElementById("total").setAttribute("value", data.value);
+                },
+            });
         }
 
         function round() {
@@ -99,8 +113,7 @@
             document.getElementById("Dice3").setAttribute("value", dices[2]);
             document.getElementById("Dice4").setAttribute("value", dices[3]);
             document.getElementById("Dice5").setAttribute("value", dices[4]);
-            var total = dices[0] + dices[1] + dices[2] + dices[3] + dices[4];
-            document.getElementById("total").setAttribute("value", total);
+            gameLogic(dices);
         }
 
         document.getElementById("Roll").onclick = round;
