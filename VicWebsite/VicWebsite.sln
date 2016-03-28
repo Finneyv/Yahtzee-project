@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VicWebsite", "VicWebsite\Vi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Tests", "Unit Tests", "{96007ED5-0B7E-4248-B0C4-575CA358B82E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{7A97167D-9199-407A-A3C7-D4013C77E8E2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VicWebsiteTests", "UnitTests\VicWebsiteTests.csproj", "{7A97167D-9199-407A-A3C7-D4013C77E8E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
