@@ -16,9 +16,9 @@
         <hr />
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Yahtzee, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Catagory, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Yahtzee, new { htmlAttributes = new { id = "Yahtzee", @class = "form-control" } })
+                @Html.EditorFor(model => model.Catagory, new { htmlAttributes = new { id = "Catagory", @class = "form-control" } })
                 @*@Html.DisplayFor(model => model.Yahtzee, "", new { id = "Yahtzee", data_bind = "value: Yahtzee" })*@
             </div>
         </div>
@@ -75,6 +75,9 @@
             <div class="col-md-offset-2 col-md-10">
                 <input id="Roll" type="button" onclick="round();" name="Roll" value="Roll"/>
            </div>
+            <div class="col-md-offset-2 col-md-10">
+                <input id="Submit" type="submit" onclick="gameLogic(dices, catagory);" name="Submit" />
+            </div>
         </div>
     </div>
 }
@@ -89,13 +92,14 @@
             return Math.floor(Math.random() * (6))+ 1;
         }
 
-        function gameLogic(val) {
+        function gameLogic(array, label) {
             debugger;
             $.ajax({
                 type: 'POST',
                 url: '@Url.Action("GameLogic", "Yahtzee")',
                 data:{
-                    Dices: val
+                    Dices: array,
+                    Catagory: label
                 },
                 success: function (data) {
                     debugger;
@@ -105,15 +109,14 @@
         }
 
         function round() {
-            var Yahtzee = "Is this working?";
-            document.getElementById("Yahtzee").setAttribute("value", Yahtzee);
+            var Catagory = "Is this working?";
+            document.getElementById("Catagory").setAttribute("value", Catagory);
             var dices = new Array(roll(), roll(), roll(), roll(), roll());
             document.getElementById("Dice1").setAttribute("value", dices[0]);
             document.getElementById("Dice2").setAttribute("value", dices[1]);
             document.getElementById("Dice3").setAttribute("value", dices[2]);
             document.getElementById("Dice4").setAttribute("value", dices[3]);
             document.getElementById("Dice5").setAttribute("value", dices[4]);
-            gameLogic(dices);
         }
 
         document.getElementById("Roll").onclick = round;

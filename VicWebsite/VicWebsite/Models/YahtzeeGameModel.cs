@@ -7,7 +7,7 @@ namespace VicWebsite.Models
 {
     public class YahtzeeGameModel
     {
-        public string Yahtzee { get; set; }
+        public string Catagory { get; set; }
         public int Dice1 { get; set; }
         public int Dice2 { get; set; }
         public int Dice3 { get; set; }
