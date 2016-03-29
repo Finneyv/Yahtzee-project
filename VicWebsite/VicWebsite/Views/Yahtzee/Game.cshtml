@@ -75,10 +75,7 @@
             <div class="col-md-offset-2 col-md-10">
                 <input id="Roll" type="button" onclick="round();" name="Roll" value="Roll"/>
            </div>
-            <div class="col-md-offset-2 col-md-10">
-                <input id="Submit" type="submit" onclick="gameLogic(dices, catagory);" name="Submit" />
-            </div>
-        </div>
+    </div>
     </div>
 }
 
@@ -109,16 +106,15 @@
         }
 
         function round() {
-            var Catagory = "Is this working?";
-            document.getElementById("Catagory").setAttribute("value", Catagory);
+            debugger;
+            var Catagory = document.getElementById("Catagory").value;
             var dices = new Array(roll(), roll(), roll(), roll(), roll());
             document.getElementById("Dice1").setAttribute("value", dices[0]);
             document.getElementById("Dice2").setAttribute("value", dices[1]);
             document.getElementById("Dice3").setAttribute("value", dices[2]);
             document.getElementById("Dice4").setAttribute("value", dices[3]);
             document.getElementById("Dice5").setAttribute("value", dices[4]);
+            gameLogic(dices, Catagory);
         }
-
-        document.getElementById("Roll").onclick = round;
     </script>
 }
