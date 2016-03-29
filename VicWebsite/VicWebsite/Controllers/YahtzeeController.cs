@@ -12,6 +12,7 @@ namespace VicWebsite.Controllers
         [HttpGet]
         public ActionResult Game()
         {
+            AddCollectionsToViewBag();
             return View();
         }
 
@@ -55,14 +56,14 @@ namespace VicWebsite.Controllers
             }
             else if(Catagory == "Three of a kind")
             {
-                if(Dices.GroupBy(x => x).Select(x => x.Count() == 3).SingleOrDefault(x => x == true))
+                if(Dices.GroupBy(x => x).Select(x => x.Count() == 3).FirstOrDefault(x => x == true))
                 {
                     score = Dices.GroupBy(x => x).Where(x => x.Count() == 3).Select(x => x.Key).SingleOrDefault() * 3;
                 }
             }
             else if(Catagory == "Four of a kind")
             {
-                if(Dices.GroupBy(x => x).Select(x => x.Count()==4).SingleOrDefault(x => x == true))
+                if(Dices.GroupBy(x => x).Select(x => x.Count()==4).FirstOrDefault(x => x == true))
                 {
                     score = Dices.GroupBy(x => x).Where(x => x.Count() == 4).Select(x => x.Key).SingleOrDefault() * 4;
                 }
@@ -70,13 +71,20 @@ namespace VicWebsite.Controllers
             else if(Catagory == "Full House")
             {
                 var grouped = Dices.GroupBy(x => x);
-                if(grouped.Select(x => x.Count() == 2).SingleOrDefault(x => x == true) && grouped.Select(x => x.Count() == 3).SingleOrDefault(x => x==true))
+                if(grouped.Select(x => x.Count() == 2).FirstOrDefault(x => x == true) && grouped.Select(x => x.Count() == 3).FirstOrDefault(x => x==true))
                 {
                     score = Dices.Sum();
                 }
             }
             var obj = new {  value = score };
             return Json(obj, JsonRequestBehavior.AllowGet);
+        }
+
+        private void AddCollectionsToViewBag()
+        {
+            List<string> catagories = new List<string> { "Chance", "Yahtzee", "Small Straight", "Large Straight", "Pair",
+            "Two Pairs", "Three of a kind", "Four of a kind", "Full House"};
+            ViewBag.Catagories = new SelectList(catagories);
         }
     }
 }

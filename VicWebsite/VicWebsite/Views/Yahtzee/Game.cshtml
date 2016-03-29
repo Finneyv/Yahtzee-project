@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Game";
+    SelectList catagories = ViewBag.Catagories;
 }
 
 <h2>Yahtzee Game</h2>
@@ -18,7 +19,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Catagory, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Catagory, new { htmlAttributes = new { id = "Catagory", @class = "form-control" } })
+                @Html.DropDownListFor(model => model.Catagory, catagories, "-- Select Scoring Catagory --", new { htmlAttributes = new { id = "Catagory", @class = "form-control" } })
                 @*@Html.DisplayFor(model => model.Yahtzee, "", new { id = "Yahtzee", data_bind = "value: Yahtzee" })*@
             </div>
         </div>
