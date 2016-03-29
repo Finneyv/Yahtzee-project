@@ -120,6 +120,10 @@
             return Math.floor(Math.random() * (6))+ 1;
         }
 
+        var dices = new Array();
+        var Catagory = document.getElementById("Catagory").value;
+        var enumerate = 0;
+
         function gameLogic(array, label) {
             debugger;
             $.ajax({
@@ -138,13 +142,50 @@
 
         function round() {
             debugger;
-            var Catagory = document.getElementById("Catagory").value;
-            var dices = new Array(roll(), roll(), roll(), roll(), roll());
+            var reroll1 = document.getElementById("reroll1").value;
+            var reroll2 = document.getElementById("reroll2").value;
+            var reroll3 = document.getElementById("reroll3").value;
+            var reroll4 = document.getElementById("reroll4").value;
+            var reroll5 = document.getElementById("reroll5").value;
+            var Dice1 = document.getElementById("Dice1").value;
+            var Dice2 = document.getElementById("Dice2").value;
+            var Dice3 = document.getElementById("Dice3").value;
+            var Dice4 = document.getElementById("Dice4").value;
+            var Dice5 = document.getElementById("Dice5").value;
+            if (enumerate == 0) {
+                Dice1 = Roll();
+                Dice2 = Roll();
+                Dice3 = Roll();
+                Dice4 = Roll();
+                Dice5 = Roll();
+            }
+            else if (enumerate < 4) {
+                if (reroll1 == true) {
+                    Dice1 = Roll();
+                }
+                if (reroll2 == true) {
+                    Dice2 = Roll();
+                }
+                if (reroll3 == true) {
+                    Dice3 = Roll();
+                }
+                if (reroll4 == true) {
+                    Dice4 = Roll();
+                }
+                if (reroll5 == true) {
+                    Dice5 = Roll();
+                }
+            }
+            else {
+                document.getElementById("Roll").setAttribute("enable", "disable")
+            }
+            var dices = { Dice1, Dice2, Dice3, Dice4, Dice5 };
             document.getElementById("Dice1").setAttribute("value", dices[0]);
             document.getElementById("Dice2").setAttribute("value", dices[1]);
             document.getElementById("Dice3").setAttribute("value", dices[2]);
             document.getElementById("Dice4").setAttribute("value", dices[3]);
             document.getElementById("Dice5").setAttribute("value", dices[4]);
+            enumerate = enumerate + 1;
             gameLogic(dices, Catagory);
         }
     </script>
