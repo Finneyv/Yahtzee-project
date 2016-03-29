@@ -47,7 +47,7 @@ namespace VicWebsiteTests
             [TestMethod]
             public void ShouldReturn15IfCatagoryIsSmallStraight()
             {
-                int[] array = { 1, 2, 3, 4, 5 };
+                int[] array = { 1, 2, 5, 3, 4 };
                 var obj = Act(array, "Small Straight");
                 var result = obj.ToString();
                 result.Equals("15");

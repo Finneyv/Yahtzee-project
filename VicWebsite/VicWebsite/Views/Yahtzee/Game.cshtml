@@ -26,47 +26,77 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Dice1, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="row">
+            <div class="col-xs-4 col-md-4">
                 @Html.EditorFor(model => model.Dice1, new { htmlAttributes = new { id = "Dice1", @class = "form-control", @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.Dice1, "", new { @class = "text-danger" })
+            </div>
+                <div class="col-xs-2 col-md-4">
+                    @Html.CheckBox("reroll1")
+                    @Html.Label("Reroll?")
+                </div>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Dice2, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="row">
+            <div class="col-xs-4 col-md-4">
                 @Html.EditorFor(model => model.Dice2, new { htmlAttributes = new { id = "Dice2", @class = "form-control", @readonly = "readonly"} })
                 @Html.ValidationMessageFor(model => model.Dice2, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-xs-2 col-md-4">
+                @Html.CheckBox("reroll2")
+                @Html.Label("Reroll?")
+            </div>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Dice3, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="row">
+            <div class="col-xs-4 col-md-4">
                 @Html.EditorFor(model => model.Dice3, new { htmlAttributes = new { id = "Dice3", @class = "form-control", @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.Dice3, "", new { @class = "text-danger" })
+            </div>
+                <div class="col-xs-2 col-md-4">
+                    @Html.CheckBox("reroll3")
+                    @Html.Label("Reroll?")
+                </div>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Dice4, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="row">
+            <div class="col-xs-4 col-md-4">
                 @Html.EditorFor(model => model.Dice4, new { htmlAttributes = new { id = "Dice4", @class = "form-control", @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.Dice4, "", new { @class = "text-danger" })
+            </div>
+                <div class="col-xs-2 col-md-4">
+                    @Html.CheckBox("reroll4")
+                    @Html.Label("Reroll?")
+                </div>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Dice5, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="row">
+            <div class="col-xs-4 col-md-4">
                 @Html.EditorFor(model => model.Dice5, new { htmlAttributes = new { id ="Dice5", @class = "form-control", @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.Dice5, "", new { @class = "text-danger" })
+            </div>
+                <div class="col-xs-2 col-md-4">
+                    @Html.CheckBox("reroll5")
+                    @Html.Label("Reroll?")
+                </div>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Score, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-4">
                 @Html.EditorFor(model => model.Score, new { htmlAttributes = new { id ="total", @class = "form-control", @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.Score, "", new { @class = "text-danger" })
             </div>
