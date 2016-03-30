@@ -32,7 +32,7 @@
                 @Html.ValidationMessageFor(model => model.Dice1, "", new { @class = "text-danger" })
             </div>
                 <div class="col-xs-2 col-md-4">
-                    @Html.CheckBox("reroll1")
+                    @Html.CheckBox("reroll1", true)
                     @Html.Label("Reroll?")
                 </div>
             </div>
@@ -46,7 +46,7 @@
                 @Html.ValidationMessageFor(model => model.Dice2, "", new { @class = "text-danger" })
             </div>
             <div class="col-xs-2 col-md-4">
-                @Html.CheckBox("reroll2")
+                @Html.CheckBox("reroll2", false)
                 @Html.Label("Reroll?")
             </div>
             </div>
@@ -120,8 +120,6 @@
             return Math.floor(Math.random() * (6))+ 1;
         }
 
-        var dices = new Array();
-        var Catagory = document.getElementById("Catagory").value;
         var enumerate = 0;
 
         function gameLogic(array, label) {
@@ -142,24 +140,25 @@
 
         function round() {
             debugger;
-            var reroll1 = document.getElementById("reroll1").value;
-            var reroll2 = document.getElementById("reroll2").value;
-            var reroll3 = document.getElementById("reroll3").value;
-            var reroll4 = document.getElementById("reroll4").value;
-            var reroll5 = document.getElementById("reroll5").value;
+            var Catagory = document.getElementById("Catagory").value;
+            var reroll1 = document.getElementById("reroll1").getAttribute("checked");
+            var reroll2 = document.getElementById("reroll2").getAttribute("checked");
+            var reroll3 = document.getElementById("reroll3").getAttribute("checked");
+            var reroll4 = document.getElementById("reroll4").getAttribute("checked");
+            var reroll5 = document.getElementById("reroll5").getAttribute("checked");
             var Dice1 = document.getElementById("Dice1").value;
             var Dice2 = document.getElementById("Dice2").value;
             var Dice3 = document.getElementById("Dice3").value;
             var Dice4 = document.getElementById("Dice4").value;
             var Dice5 = document.getElementById("Dice5").value;
             if (enumerate == 0) {
-                Dice1 = Roll();
-                Dice2 = Roll();
-                Dice3 = Roll();
-                Dice4 = Roll();
-                Dice5 = Roll();
+                Dice1 = roll();
+                Dice2 = roll();
+                Dice3 = roll();
+                Dice4 = roll();
+                Dice5 = roll();
             }
-            else if (enumerate < 4) {
+            else if(enumerate < 3) {
                 if (reroll1 == true) {
                     Dice1 = Roll();
                 }
@@ -177,14 +176,15 @@
                 }
             }
             else {
+                alert("Can only reroll 3 times!")
                 document.getElementById("Roll").setAttribute("enable", "disable")
             }
-            var dices = { Dice1, Dice2, Dice3, Dice4, Dice5 };
-            document.getElementById("Dice1").setAttribute("value", dices[0]);
-            document.getElementById("Dice2").setAttribute("value", dices[1]);
-            document.getElementById("Dice3").setAttribute("value", dices[2]);
-            document.getElementById("Dice4").setAttribute("value", dices[3]);
-            document.getElementById("Dice5").setAttribute("value", dices[4]);
+            var dices = [ Dice1, Dice2, Dice3, Dice4, Dice5 ];
+            document.getElementById("Dice1").setAttribute("value", Dice1);
+            document.getElementById("Dice2").setAttribute("value", Dice2);
+            document.getElementById("Dice3").setAttribute("value", Dice3);
+            document.getElementById("Dice4").setAttribute("value", Dice4);
+            document.getElementById("Dice5").setAttribute("value", Dice5);
             enumerate = enumerate + 1;
             gameLogic(dices, Catagory);
         }
