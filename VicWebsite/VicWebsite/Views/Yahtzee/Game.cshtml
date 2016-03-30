@@ -32,7 +32,7 @@
                 @Html.ValidationMessageFor(model => model.Dice1, "", new { @class = "text-danger" })
             </div>
                 <div class="col-xs-2 col-md-4">
-                    @Html.CheckBox("reroll1", true)
+                    @Html.CheckBoxFor(model => model.Reroll1, new { id = "Reroll1"})
                     @Html.Label("Reroll?")
                 </div>
             </div>
@@ -46,7 +46,7 @@
                 @Html.ValidationMessageFor(model => model.Dice2, "", new { @class = "text-danger" })
             </div>
             <div class="col-xs-2 col-md-4">
-                @Html.CheckBox("reroll2", false)
+                @Html.CheckBoxFor(model => model.Reroll2, new { id = "Reroll2"})
                 @Html.Label("Reroll?")
             </div>
             </div>
@@ -60,7 +60,7 @@
                 @Html.ValidationMessageFor(model => model.Dice3, "", new { @class = "text-danger" })
             </div>
                 <div class="col-xs-2 col-md-4">
-                    @Html.CheckBox("reroll3")
+                   @Html.CheckBoxFor(model => model.Reroll3, new { id = "Reroll3" })
                     @Html.Label("Reroll?")
                 </div>
             </div>
@@ -74,7 +74,7 @@
                 @Html.ValidationMessageFor(model => model.Dice4, "", new { @class = "text-danger" })
             </div>
                 <div class="col-xs-2 col-md-4">
-                    @Html.CheckBox("reroll4")
+                    @Html.CheckBoxFor(model => model.Reroll4, new { id = "Reroll4" })
                     @Html.Label("Reroll?")
                 </div>
             </div>
@@ -88,7 +88,7 @@
                 @Html.ValidationMessageFor(model => model.Dice5, "", new { @class = "text-danger" })
             </div>
                 <div class="col-xs-2 col-md-4">
-                    @Html.CheckBox("reroll5")
+                    @Html.CheckBoxFor(model => model.Reroll5, new { id = "Reroll5" })
                     @Html.Label("Reroll?")
                 </div>
             </div>
@@ -141,11 +141,11 @@
         function round() {
             debugger;
             var Catagory = document.getElementById("Catagory").value;
-            var reroll1 = document.getElementById("reroll1").getAttribute("checked");
-            var reroll2 = document.getElementById("reroll2").getAttribute("checked");
-            var reroll3 = document.getElementById("reroll3").getAttribute("checked");
-            var reroll4 = document.getElementById("reroll4").getAttribute("checked");
-            var reroll5 = document.getElementById("reroll5").getAttribute("checked");
+            var reroll1 = document.getElementById("Reroll1").value;
+            var reroll2 = document.getElementById("Reroll2").value;
+            var reroll3 = document.getElementById("Reroll3").value;
+            var reroll4 = document.getElementById("Reroll4").value;
+            var reroll5 = document.getElementById("Reroll5").value;
             var Dice1 = document.getElementById("Dice1").value;
             var Dice2 = document.getElementById("Dice2").value;
             var Dice3 = document.getElementById("Dice3").value;
