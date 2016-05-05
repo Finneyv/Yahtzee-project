@@ -26,9 +26,11 @@
                 <h2>Menu</h2>
                 <ul class="links">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Yahtzee", "Game", "Yahtzee")</li>
-                    <li>@Html.ActionLink("Home", "About", "Home")</li>
-                    <li>@Html.ActionLink("Home", "Contact", "Home")</li>
+                    <li class="#About"><a href="#About">About</a></li>
+                    <li class="#Skills"><a href="#Skills">My Skills</a></li>
+                    <li class="#Experience"><a href="#Experience">My Resume</a></li>
+                    <li class="#Projects"><a href="Projects">My Protfolio</a></li>
+                    <li class="#footer"><a href="#footer">Contact</a></li>
                     @*<li><a href="#">Sign Up</a></li>*@
                 </ul>
                 <a href="#" class="close">Close</a>
@@ -38,8 +40,11 @@
         <!-- Footer -->
         <section id="footer">
             <div class="inner">
-                <h2 class="major">Get in touch</h2>
-                <p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
+                <h2 class="major">Contact Me!</h2>
+                <p>
+                    Feel free to send me a message below or by using the links to the side. <br />
+                    Any messages sent via the textbox below will be sent to my email address at <a href="mailto:finneyv09@gmail.com?subject=From Your Website">finneyv09@gmail.com</a><br/> I check this email at least once daily so you should expect a reply within at least 24 hours.
+                </p>
                 <form method="post" action="#">
                     <div class="field">
                         <label for="name">Name</label>
@@ -59,15 +64,15 @@
                 </form>
                 <ul class="contact">
                     <li class="fa-home">
-                        Untitled Inc<br />
-                        1234 Somewhere Road Suite #2894<br />
-                        Nashville, TN 00000-0000
+                        Victor Finney<br />
+                        4421 Clovelly Court<br />
+                        Indianapolis, IN 46254
                     </li>
-                    <li class="fa-phone">(000) 000-0000</li>
-                    <li class="fa-envelope"><a href="#">information@untitled.tld</a></li>
-                    <li class="fa-twitter"><a href="#">twitter.com/untitled-tld</a></li>
-                    <li class="fa-facebook"><a href="#">facebook.com/untitled-tld</a></li>
-                    <li class="fa-instagram"><a href="#">instagram.com/untitled-tld</a></li>
+                    <li class="fa-phone">(513) 502-1788</li>
+                    <li class="fa-envelope"><a href="mailto:finneyv09@gmail.com?subject=From Your Website">finneyv09@gmail.com</a></li>
+                    <li class="icon fa-github"><a href="https://www.github.com/Finneyv">github.com/Finneyv</a></li>
+                    <li class="icon fa-linkedin"><a href="https://www.linkedin.com/in/victor-finney-8b4a3634">linkedin.com/in/victor-finney-8b4a3634</a></li>
+                    @*<li class="fa-instagram"><a href="#">instagram.com/untitled-tld</a></li>*@
                 </ul>
                 <ul class="copyright">
                     <li>&copy; @DateTime.Now.Year - Vic Finney</li>
