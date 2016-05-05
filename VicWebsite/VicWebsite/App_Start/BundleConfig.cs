@@ -26,6 +26,13 @@ namespace VicWebsite
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/bundles/skel").Include(
+                        "~/Scripts/skel.min.js",
+                        "~/Scripts/main.js",
+                        "~/Scripts/util.js",
+                        "~/Scripts/jquery.min.js",
+                        "~/Scripts/jquery.scrollex.min.js"));
         }
     }
 }
