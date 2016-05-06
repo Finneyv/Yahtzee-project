@@ -28,8 +28,8 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li class="#About"><a href="#About">About</a></li>
                     <li class="#Skills"><a href="#Skills">My Skills</a></li>
-                    <li class="#Experience"><a href="#Experience">My Resume</a></li>
-                    <li class="#Projects"><a href="Projects">My Protfolio</a></li>
+                    <li class=""><a href="#Experience">My Resume</a></li>
+                    <li class=""><a href="Projects">My Protfolio</a></li>
                     <li class="#footer"><a href="#footer">Contact</a></li>
                     @*<li><a href="#">Sign Up</a></li>*@
                 </ul>
@@ -42,10 +42,10 @@
             <div class="inner">
                 <h2 class="major">Contact Me!</h2>
                 <p>
-                    Feel free to send me a message below or by using the links to the side. <br />
+                    Feel free to send me a message using any of the links below. <br />
                     Any messages sent via the textbox below will be sent to my email address at <a href="mailto:finneyv09@gmail.com?subject=From Your Website">finneyv09@gmail.com</a><br/> I check this email at least once daily so you should expect a reply within at least 24 hours.
                 </p>
-                <form method="post" action="#">
+                @*<form method="post" action="#">
                     <div class="field">
                         <label for="name">Name</label>
                         <input type="text" name="name" id="name" />
@@ -61,7 +61,7 @@
                     <ul class="actions">
                         <li><input type="submit" value="Send Message" /></li>
                     </ul>
-                </form>
+                </form>*@
                 <ul class="contact">
                     <li class="fa-home">
                         Victor Finney<br />
@@ -81,35 +81,6 @@
             </div>
         </section>
     </div>
-    @*<body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Victor C. Finney", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Yahtzee", "Game", "Yahtzee")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    </ul>
-                    @Html.Partial("_LoginPartial")
-                </div>
-            </div>
-        </div>
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - Vic Finney</p>
-            </footer>
-        </div>*@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/skel")

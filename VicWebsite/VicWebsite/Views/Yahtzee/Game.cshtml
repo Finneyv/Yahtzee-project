@@ -5,190 +5,205 @@
     SelectList catagories = ViewBag.Catagories;
 }
 
-<h2>Yahtzee Game</h2>
-
-
-@using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "Yahtzee", @name = "Yahtzee"}))
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-        <p>This is just a small project I made in order to teach myself some basic JavaScript and reinforce the C# and .NET skills I had learned as an apprentice at EFA the numbers are generated using JavaScript and then the score is calculated using LINQ in C#.</p>
-        <hr />
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Catagory, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Catagory, catagories, "-- Select Scoring Catagory --", new { htmlAttributes = new { id = "Catagory", @class = "form-control" } })
-            </div>
+<div id="page-wrapper">
+    <section id="banner">
+        <div class="inner">
+            <h2>Yahtzee Game</h2>
+            <p>This is a small project I made in order to teach myself some basic JavaScript and reinforce the C# and .NET skills I had learned as an apprentice at <a href="https://elevenfifty.org/">Eleven Fifty Academy</a> the numbers are generated using JavaScript and then the score is calculated using LINQ in C#.</p>
         </div>
+    </section>
+    <section id="wrapper">
+        <div class="wrapper">
+            <div class="inner">
+    <section>
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "Yahtzee", @name = "Yahtzee" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row uniform">
+            <div class="inner">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Dice1, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="row">
-            <div class="col-xs-4 col-md-4">
-                @Html.EditorFor(model => model.Dice1, new { htmlAttributes = new { id = "Dice1", @class = "form-control", @readonly = "readonly" } })
-                @Html.ValidationMessageFor(model => model.Dice1, "", new { @class = "text-danger" })
-            </div>
-                <div class="col-xs-2 col-md-4">
-                    <input name="Reroll" id="Reroll1" type="checkbox"/>
-                    @Html.Label("Reroll?")
+                <div class="12u$">
+                    @Html.LabelFor(model => model.Catagory, htmlAttributes: new {@class = "control-label col-md-2" })
+                    <div class="select-wrapper">
+                        @Html.DropDownListFor(model => model.Catagory, catagories, "-- Select Scoring Catagory --", new { htmlAttributes = new { id = "Catagory", @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Dice1, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="row">
+                        <div class="col-xs-4 col-md-4">
+                            @Html.EditorFor(model => model.Dice1, new { htmlAttributes = new { id = "Dice1", @class = "form-control", @readonly = "readonly" } })
+                            @Html.ValidationMessageFor(model => model.Dice1, "", new { @class = "text-danger" })
+                        </div>
+                    <div class="col-xs-2 col-md-4">
+                        <input type="checkbox" id="Reroll1" name="Reroll" />
+                        <label for="Reroll1">Reroll?</label>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Dice2, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="row">
+                        <div class="col-xs-4 col-md-4">
+                            @Html.EditorFor(model => model.Dice2, new { htmlAttributes = new { id = "Dice2", @class = "form-control", @readonly = "readonly" } })
+                            @Html.ValidationMessageFor(model => model.Dice2, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-xs-2 col-md-4">
+                            <input name="Reroll" id="Reroll2" type="checkbox" />
+                            <label for="Reroll2">Reroll?</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Dice3, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="row">
+                        <div class="col-xs-4 col-md-4">
+                            @Html.EditorFor(model => model.Dice3, new { htmlAttributes = new { id = "Dice3", @class = "form-control", @readonly = "readonly" } })
+                            @Html.ValidationMessageFor(model => model.Dice3, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-xs-2 col-md-4">
+                            <input name="Reroll" id="Reroll3" type="checkbox" />
+                            <label for="Reroll3">Reroll?</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Dice4, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="row">
+                        <div class="col-xs-4 col-md-4">
+                            @Html.EditorFor(model => model.Dice4, new { htmlAttributes = new { id = "Dice4", @class = "form-control", @readonly = "readonly" } })
+                            @Html.ValidationMessageFor(model => model.Dice4, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-xs-2 col-md-4">
+                            <input name="Reroll" id="Reroll4" type="checkbox" />
+                            <label for="Reroll4">Reroll?</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Dice5, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="row">
+                        <div class="col-xs-4 col-md-4">
+                            @Html.EditorFor(model => model.Dice5, new { htmlAttributes = new { id = "Dice5", @class = "form-control", @readonly = "readonly" } })
+                            @Html.ValidationMessageFor(model => model.Dice5, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-xs-2 col-md-4">
+                            <input name="Reroll" id="Reroll5" type="checkbox" />
+                            <label for="Reroll5">Reroll?</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Score, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Score, new { htmlAttributes = new { id = "total", @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.Score, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input id="Roll" type="button" onclick="round();" name="Roll" value="Roll" />
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Dice2, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="row">
-            <div class="col-xs-4 col-md-4">
-                @Html.EditorFor(model => model.Dice2, new { htmlAttributes = new { id = "Dice2", @class = "form-control", @readonly = "readonly"} })
-                @Html.ValidationMessageFor(model => model.Dice2, "", new { @class = "text-danger" })
-            </div>
-            <div class="col-xs-2 col-md-4">
-                <input name="Reroll" id="Reroll2" type="checkbox" />
-                @Html.Label("Reroll?")
-            </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Dice3, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="row">
-            <div class="col-xs-4 col-md-4">
-                @Html.EditorFor(model => model.Dice3, new { htmlAttributes = new { id = "Dice3", @class = "form-control", @readonly = "readonly" } })
-                @Html.ValidationMessageFor(model => model.Dice3, "", new { @class = "text-danger" })
-            </div>
-                <div class="col-xs-2 col-md-4">
-                    <input name="Reroll" id="Reroll3" type="checkbox" />
-                    @Html.Label("Reroll?")
                 </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Dice4, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="row">
-            <div class="col-xs-4 col-md-4">
-                @Html.EditorFor(model => model.Dice4, new { htmlAttributes = new { id = "Dice4", @class = "form-control", @readonly = "readonly" } })
-                @Html.ValidationMessageFor(model => model.Dice4, "", new { @class = "text-danger" })
-            </div>
-                <div class="col-xs-2 col-md-4">
-                    <input name="Reroll" id="Reroll4" type="checkbox" />
-                    @Html.Label("Reroll?")
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Dice5, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="row">
-            <div class="col-xs-4 col-md-4">
-                @Html.EditorFor(model => model.Dice5, new { htmlAttributes = new { id ="Dice5", @class = "form-control", @readonly = "readonly" } })
-                @Html.ValidationMessageFor(model => model.Dice5, "", new { @class = "text-danger" })
-            </div>
-                <div class="col-xs-2 col-md-4">
-                    <input name="Reroll" id="Reroll5" type="checkbox" />
-                    @Html.Label("Reroll?")
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Score, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-4">
-                @Html.EditorFor(model => model.Score, new { htmlAttributes = new { id ="total", @class = "form-control", @readonly = "readonly" } })
-                @Html.ValidationMessageFor(model => model.Score, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input id="Roll" type="button" onclick="round();" name="Roll" value="Roll"/>
-           </div>
+        }
+    </section>
     </div>
     </div>
-}
+        </section>
+    </div>
+    @*<div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>*@
 
-@*<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>*@
-
-@section Scripts {
-    <script type="text/javascript", language="javascript">
-        function roll() {
-            return Math.floor(Math.random() * (6))+ 1;
-        }
-
-        var enumerate = 0;
-        var dices = new Array();
-
-        function gameLogic(array, label) {
-            debugger;
-            $.ajax({
-                type: 'POST',
-                url: '@Url.Action("GameLogic", "Yahtzee")',
-                data:{
-                    Dices: array,
-                    Catagory: label
-                },
-                success: function (data) {
-                    debugger;
-                    document.getElementById("total").setAttribute("value", data.value);
-                },
-            });
-        }
-
-        function round() {
-            debugger;
-            var Catagory = document.getElementById("Catagory").value;
-            //var reroll1 = document.getElementById("Reroll1");
-            //var reroll2 = document.getElementById("Reroll2");
-            //var reroll3 = document.getElementById("Reroll3");
-            //var reroll4 = document.getElementById("Reroll4");
-            //var reroll5 = document.getElementById("Reroll5");
-            //var Dice1 = document.getElementById("Dice1").value;
-            //var Dice2 = document.getElementById("Dice2").value;
-            //var Dice3 = document.getElementById("Dice3").value;
-            //var Dice4 = document.getElementById("Dice4").value;
-            //var Dice5 = document.getElementById("Dice5").value;
-            if (enumerate == 0) {
-                dices = [roll(), roll(), roll(), roll(), roll()];
+        <script type="text/javascript" , language="javascript">
+            function roll() {
+                return Math.floor(Math.random() * (6)) + 1;
             }
-            else if (enumerate < 3) {
-                for (i = 0; i < document.Yahtzee.Reroll.length; i++) {
-                    if (document.Yahtzee.Reroll[i].checked == true) {
-                        dices[i] = roll();
-                    }
+
+            var enumerate = 0;
+            var dices = new Array();
+
+            function gameLogic(array, label) {
+                debugger;
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("GameLogic", "Yahtzee")',
+                    data: {
+                        Dices: array,
+                        Catagory: label
+                    },
+                    success: function (data) {
+                        debugger;
+                        document.getElementById("total").setAttribute("value", data.value);
+                    },
+                });
+            }
+
+            function round() {
+                debugger;
+                var Catagory = document.getElementById("Catagory").value;
+                //var reroll1 = document.getElementById("Reroll1");
+                //var reroll2 = document.getElementById("Reroll2");
+                //var reroll3 = document.getElementById("Reroll3");
+                //var reroll4 = document.getElementById("Reroll4");
+                //var reroll5 = document.getElementById("Reroll5");
+                //var Dice1 = document.getElementById("Dice1").value;
+                //var Dice2 = document.getElementById("Dice2").value;
+                //var Dice3 = document.getElementById("Dice3").value;
+                //var Dice4 = document.getElementById("Dice4").value;
+                //var Dice5 = document.getElementById("Dice5").value;
+                if (enumerate == 0) {
+                    dices = [roll(), roll(), roll(), roll(), roll()];
                 }
-                //debugger;
-                //if (reroll1.checked) {
-                //    Dice1 = roll();
-                //}
-                //if (reroll2 == "true") {
-                //    Dice2 = roll();
-                //}
-                //if (reroll3 == "true") {
-                //    Dice3 = roll();
-                //}
-                //if (reroll4 == "true") {
-                //    Dice4 = roll();
-                //}
-                //if (reroll5 == "true") {
-                //    Dice5 = roll();
-                //}
+                else if (enumerate < 3) {
+                    for (i = 0; i < document.Yahtzee.Reroll.length; i++) {
+                        if (document.Yahtzee.Reroll[i].checked == true) {
+                            dices[i] = roll();
+                        }
+                    }
+                    //debugger;
+                    //if (reroll1.checked) {
+                    //    Dice1 = roll();
+                    //}
+                    //if (reroll2 == "true") {
+                    //    Dice2 = roll();
+                    //}
+                    //if (reroll3 == "true") {
+                    //    Dice3 = roll();
+                    //}
+                    //if (reroll4 == "true") {
+                    //    Dice4 = roll();
+                    //}
+                    //if (reroll5 == "true") {
+                    //    Dice5 = roll();
+                    //}
+                }
+                else {
+                    alert("Can only reroll 3 times!")
+                    document.getElementById("Roll").setAttribute("enable", "disable")
+                }
+                //var dices = [ Dice1, Dice2, Dice3, Dice4, Dice5 ];
+                document.getElementById("Dice1").setAttribute("value", dices[0]);
+                document.getElementById("Dice2").setAttribute("value", dices[1]);
+                document.getElementById("Dice3").setAttribute("value", dices[2]);
+                document.getElementById("Dice4").setAttribute("value", dices[3]);
+                document.getElementById("Dice5").setAttribute("value", dices[4]);
+                enumerate = enumerate + 1;
+                gameLogic(dices, Catagory);
             }
-            else {
-                alert("Can only reroll 3 times!")
-                document.getElementById("Roll").setAttribute("enable", "disable")
-            }
-            //var dices = [ Dice1, Dice2, Dice3, Dice4, Dice5 ];
-            document.getElementById("Dice1").setAttribute("value", dices[0]);
-            document.getElementById("Dice2").setAttribute("value", dices[1]);
-            document.getElementById("Dice3").setAttribute("value", dices[2]);
-            document.getElementById("Dice4").setAttribute("value", dices[3]);
-            document.getElementById("Dice5").setAttribute("value", dices[4]);
-            enumerate = enumerate + 1;
-            gameLogic(dices, Catagory);
-        }
-    </script>
-}
+        </script>
+<script src="~/Scripts/skel.min.js"></script>
+<script src="~/Scripts/jquery.min.js"></script>
+<script src="~/Scripts/jquery.scrollex.min.js"></script>
+<script src="~/Scripts/util.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="~/Scripts/main.js"></script>
