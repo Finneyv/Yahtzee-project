@@ -33,8 +33,9 @@
                     @Html.LabelFor(model => model.Dice1, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="row">
                         <div class="col-xs-4 col-md-4">
-                            @Html.EditorFor(model => model.Dice1, new { htmlAttributes = new { id = "Dice1", @class = "form-control", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.Dice1, "", new { @class = "text-danger" })
+                            <input type="text" class="form-control" readonly="readonly" id="Dice1" name="Dice1" />
+                            @*@Html.EditorFor(model => model.Dice1, new { htmlAttributes = new { id = "Dice1", @class = "form-control", @readonly = "readonly" } })
+                            @Html.ValidationMessageFor(model => model.Dice1, "", new { @class = "text-danger" })*@
                         </div>
                     <div class="col-xs-2 col-md-4">
                         <input type="checkbox" id="Reroll1" name="Reroll" />
@@ -47,8 +48,9 @@
                     @Html.LabelFor(model => model.Dice2, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="row">
                         <div class="col-xs-4 col-md-4">
-                            @Html.EditorFor(model => model.Dice2, new { htmlAttributes = new { id = "Dice2", @class = "form-control", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.Dice2, "", new { @class = "text-danger" })
+                            <input type="text" class="form-control" readonly="readonly" id="Dice2" name="Dice2"/>
+                            @*@Html.EditorFor(model => model.Dice2, new { htmlAttributes = new { id = "Dice2", @class = "form-control", @readonly = "readonly" } })
+                            @Html.ValidationMessageFor(model => model.Dice2, "", new { @class = "text-danger" })*@
                         </div>
                         <div class="col-xs-2 col-md-4">
                             <input name="Reroll" id="Reroll2" type="checkbox" />
@@ -61,8 +63,9 @@
                     @Html.LabelFor(model => model.Dice3, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="row">
                         <div class="col-xs-4 col-md-4">
-                            @Html.EditorFor(model => model.Dice3, new { htmlAttributes = new { id = "Dice3", @class = "form-control", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.Dice3, "", new { @class = "text-danger" })
+                            <input type="text" class="form-control" readonly="readonly" id="Dice3" name="Dice3"/>
+                            @*@Html.EditorFor(model => model.Dice3, new { htmlAttributes = new { id = "Dice3", @class = "form-control", @readonly = "readonly" } })
+                            @Html.ValidationMessageFor(model => model.Dice3, "", new { @class = "text-danger" })*@
                         </div>
                         <div class="col-xs-2 col-md-4">
                             <input name="Reroll" id="Reroll3" type="checkbox" />
@@ -75,8 +78,9 @@
                     @Html.LabelFor(model => model.Dice4, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="row">
                         <div class="col-xs-4 col-md-4">
-                            @Html.EditorFor(model => model.Dice4, new { htmlAttributes = new { id = "Dice4", @class = "form-control", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.Dice4, "", new { @class = "text-danger" })
+                            <input id="Dice4" class="form-control" type="text" name="Dice4" readonly="readonly"/>
+                            @*@Html.EditorFor(model => model.Dice4, new { htmlAttributes = new { id = "Dice4", @class = "form-control", @readonly = "readonly" } })
+                            @Html.ValidationMessageFor(model => model.Dice4, "", new { @class = "text-danger" })*@
                         </div>
                         <div class="col-xs-2 col-md-4">
                             <input name="Reroll" id="Reroll4" type="checkbox" />
@@ -89,8 +93,9 @@
                     @Html.LabelFor(model => model.Dice5, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="row">
                         <div class="col-xs-4 col-md-4">
-                            @Html.EditorFor(model => model.Dice5, new { htmlAttributes = new { id = "Dice5", @class = "form-control", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.Dice5, "", new { @class = "text-danger" })
+                            <input class="form-control" type="text" id="Dice5" name="Dice5" readonly="readonly"/>
+                            @*@Html.EditorFor(model => model.Dice5, new { htmlAttributes = new { id = "Dice5", @class = "form-control", @readonly = "readonly" } })
+                            @Html.ValidationMessageFor(model => model.Dice5, "", new { @class = "text-danger" })*@
                         </div>
                         <div class="col-xs-2 col-md-4">
                             <input name="Reroll" id="Reroll5" type="checkbox" />
@@ -102,15 +107,16 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Score, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-4">
-                        @Html.EditorFor(model => model.Score, new { htmlAttributes = new { id = "total", @class = "form-control", @readonly = "readonly" } })
-                        @Html.ValidationMessageFor(model => model.Score, "", new { @class = "text-danger" })
+                        <input class="form-control text-left" type="text" name="Score" id="total" readonly="readonly" />
+                        @*@Html.EditorFor(model => model.Score, new { htmlAttributes = new { id = "total", @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.Score, "", new { @class = "text-danger" })*@
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input id="Roll" type="button" onclick="round();" name="Roll" value="Roll" />
-                    </div>
+                    <ul class="actions">
+                        <li><input id="Roll" type="button" onclick="round();" name="Roll" value="Roll" /></li>
+                    </ul>
                 </div>
             </div>
                 </div>
@@ -123,7 +129,7 @@
     @*<div>
             @Html.ActionLink("Back to List", "Index")
         </div>*@
-
+@section scripts{
         <script type="text/javascript" , language="javascript">
             function roll() {
                 return Math.floor(Math.random() * (6)) + 1;
@@ -207,3 +213,4 @@
 <script src="~/Scripts/util.js"></script>
 <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 <script src="~/Scripts/main.js"></script>
+}

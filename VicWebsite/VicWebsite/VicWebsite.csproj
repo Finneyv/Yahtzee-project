@@ -217,6 +217,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\bg.jpg" />
     <Content Include="images\ElevenFiftylogo.png" />
     <Content Include="images\pic01.jpg" />
     <Content Include="images\pic04.jpg" />
@@ -261,7 +262,7 @@
     <Content Include="sass\ie9.scss" />
     <Content Include="sass\main.scss" />
     <Content Include="Content\VicFinney%27sPortfolio.pdf" />
-    <Content Include="Content\VictorCFinneyResume.pdf" />
+    <Content Include="Content\VicFinneyResume.pdf" />
     <None Include="Properties\PublishProfiles\VicWebsite20160506040737 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -280,14 +281,18 @@
     <Content Include="Scripts\skel.min.js" />
     <Content Include="Scripts\util.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
