@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
+using VicWebsite.Models;
 
 namespace VicWebsite.Controllers
 {
@@ -20,11 +23,30 @@ namespace VicWebsite.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Contact(ContactModel model)
         {
-            ViewBag.Message = "Your contact page.";
+            try
+            {
+                MailMessage message = new MailMessage();
+                message.Body = model.Message;
+                message.Subject = "Message from " + model.Name + " Email: " + model.Email;
+                message.To.Add("Papercut@user.com");
+                if (model.WantCC)
+                {
+                    message.CC.Add(model.Email);
+                }
+                SmtpClient client = new SmtpClient();
+                client.EnableSsl = false;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.UseDefaultCredentials = true;
 
-            return View();
+                client.Send(message);
+            }
+            catch(Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+            return RedirectToAction("Index");
         }
     }
 }
